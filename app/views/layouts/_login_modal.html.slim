@@ -1,0 +1,19 @@
+div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  div class="modal-dialog" style="width: 400px;"
+    div class="modal-content"
+      = simple_form_for :sessions, url: login_path, html: { class: 'form-vertical' } do |f|
+        div class="modal-header"
+          button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true"
+              |X
+          h4 class="modal-title" id="myModalLabel" style="text-align: center;"
+            |Login
+        div class="modal-body"
+          div class="row"
+            div class="col-md-10 col-md-offset-1"
+                = f.input :credential, placeholder: 'Username or email', label: false 
+                = f.input :password, placeholder: 'Password', label: false 
+        div class="modal-footer"
+          button type="button" class="btn btn-default" data-dismiss="modal"
+            |Close
+          = f.submit class: "btn btn-md btn-primary", value: 'Login'

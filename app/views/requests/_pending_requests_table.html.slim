@@ -1,0 +1,22 @@
+table class="table table-striped datatable"
+  thead
+    tr
+      th
+        |User
+      th
+        |Username
+      th
+        |Message
+      th
+        |status
+  tbody
+    - @requests.each do |request|
+      tr
+        td
+          = request.user.full_name
+        td
+          = request.user.username
+        td
+          = request.message
+        td
+

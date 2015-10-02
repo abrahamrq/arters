@@ -1,0 +1,7 @@
+= simple_form_for(@request, html: { novalidate: false }, url: path) do |f|
+    = f.input :message, placeholder: 'Why do you want to become an artist'
+    = f.input :url, placeholder: 'URL to your works'
+    div class="actions"
+      = link_to root_path, class: "btn btn-md btn-primary float-left" do
+        | Back
+      = f.submit class: "btn btn-md btn-primary float-right", value: 'Send'

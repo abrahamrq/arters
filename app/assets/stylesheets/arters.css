@@ -1,0 +1,32 @@
+.top-header{
+	width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.footer-div{
+	width: 100%;
+  height: 100px;
+  background-color: #F5F5F5;
+  border-top: 1px solid #9d9d9d;
+}
+
+.register-login{
+	float: right;
+}
+
+.page-title{
+	text-align: center;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+
+.actions{
+	height: 35px;
+}

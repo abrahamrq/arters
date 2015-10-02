@@ -1,0 +1,7 @@
+= simple_form_for :sessions, url: path, html: { class: 'form-vertical' } do |f|
+  = f.input :credential, placeholder: 'Username or email', label: false 
+  = f.input :password, placeholder: 'Password', label: false 
+  div class="actions"
+      = link_to root_path, class: "btn btn-md btn-primary float-left" do
+        | Back
+      = f.submit class: "btn btn-md btn-primary float-right", value: 'Login'

@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "artist_requests", ["deleted_at"], name: "index_artist_requests_on_deleted_at", using: :btree
 
+  create_table "products", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description"
+    t.string   "image_url",   limit: 255
+    t.integer  "status",                  default: 0
+    t.integer  "quantity"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at"

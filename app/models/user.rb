@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
 
   def main_role
-    self.roles.order('id DESC').first.name
+    self.roles.order('id ASC').first.name
   end
 
   private

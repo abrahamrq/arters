@@ -8,15 +8,18 @@ table class="table table-striped datatable"
       th
         |Message
       th
-        |status
+        |Actions
   tbody
     - @requests.each do |request|
-      tr
-        td
+      tr id="artist_request_#{request.id}"
+        td style="width: 15%"
           = request.user.full_name
-        td
+        td style="width: 10%"
           = request.user.username
-        td
+        td style="width: 60%"
           = request.message
-        td
-
+        td style="width: 15%"
+          button id="accept_button" type="button" class="btn btn-success" onclick="changeStatus('accepted', #{request.id})"
+            | Accept
+          button id="reject_button" type="button" class="btn btn-danger" onclick="changeStatus('rejected', #{request.id})"
+            | Reject

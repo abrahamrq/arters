@@ -19,6 +19,13 @@ class RequestsController < ApplicationController
 		@requests = ArtistRequest.pending
 	end
 
+	def change_status
+		@artist_request = ArtistRequest.find(params[:artist_request_id])
+		@artist_request.send("#{params[:status]}!")
+		@artist_request.authorize_user
+		render json: @artist_request, status: 200
+	end
+
 	private
 
 	def request_params

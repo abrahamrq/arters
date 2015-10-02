@@ -30,3 +30,7 @@
 .actions{
 	height: 35px;
 }
+
+#accept_button{
+	margin-right: 5px;
+}

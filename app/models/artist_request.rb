@@ -7,4 +7,7 @@ class ArtistRequest < ActiveRecord::Base
 
   validates :message, presence: true
 
+  def authorize_user
+  	UserRole.create(user: self.user, role_id: 2) if accepted?
+  end
 end

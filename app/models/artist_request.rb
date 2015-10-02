@@ -6,6 +6,7 @@ class ArtistRequest < ActiveRecord::Base
   belongs_to :user, inverse_of: :artist_requests
 
   validates :message, presence: true
+  validates :user, presence: true
 
   def authorize_user
   	UserRole.create(user: self.user, role_id: 2) if accepted?

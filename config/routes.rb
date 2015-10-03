@@ -18,8 +18,10 @@ Rails.application.routes.draw do
 
     # Just if you are an artist
     scope :constraints => lambda{|req| req.session[:role] == 'artist'} do
-      get 'upload_product', to: 'products#new', as: :new_product
-      post 'upload_product', to: 'products#create', as: :create_product
+      get 'upload_item', to: 'items#new', as: :new_item
+      post 'upload_item', to: 'items#create', as: :create_item
+      get 'my_items', to: 'items#my_items', as: :my_items
+      get 'item/:id', to: 'items#show', as: :item
     end
 
     # Just if you are an admin

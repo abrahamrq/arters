@@ -1,9 +1,9 @@
-class Product < ActiveRecord::Base
+class Item < ActiveRecord::Base
   acts_as_paranoid
 
   enum status: [:in_stock, :out_of_stock]
 
-  belongs_to :user, inverse_of: :products
+  belongs_to :user, inverse_of: :items
 
   validates :user, presence: true
   validates :name, presence: true

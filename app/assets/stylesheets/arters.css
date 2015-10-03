@@ -34,3 +34,7 @@
 #accept_button{
 	margin-right: 5px;
 }
+
+tr.item_row:hover{
+	opacity: .7;
+}

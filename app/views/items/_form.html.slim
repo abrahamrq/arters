@@ -1,6 +1,6 @@
-= simple_form_for(@product, html: { novalidate: false }, url: path) do |f|
+= simple_form_for(@item, html: { novalidate: false }, url: path) do |f|
     = f.input :name, placeholder: 'Eg. Mona lisa'
-    = f.input :description, placeholder: 'Describe your product'
+    = f.input :description, placeholder: 'Describe your item'
     = f.input :image_url, placeholder: 'Url to an imagee'
     = f.input :quantity
     div class="actions"

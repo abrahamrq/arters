@@ -1,0 +1,31 @@
+table class="table table-striped datatable"
+  thead
+    tr
+      th
+        |Image
+      th
+        |Name
+      th
+        |Description
+      th
+        |Quantity
+      th
+        |Status
+  tbody
+    - @items.each do |item|
+      tr class="item_row" onclick="visitItem(#{item.id})"
+        td style="width: 20%"
+          = image_tag( item.image_url, size: "120")
+        td style="width: 10%"
+          = item.name
+        td style="width: 50%"
+          = item.description
+        td style="width: 10%"
+          = item.quantity
+        td style="width: 10%"
+          = item.status
+
+javascript:
+  function visitItem(item_id){
+    location.assign("item/"+item_id);
+  };

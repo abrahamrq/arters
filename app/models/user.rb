@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :roles, through: :user_roles
   has_many :user_roles, inverse_of: :user
   has_many :artist_requests, inverse_of: :user
-  has_many :products, inverse_of: :user
+  has_many :items, inverse_of: :user
 
   validates :username, presence: true
   validates :name, presence: true

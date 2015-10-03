@@ -72,11 +72,11 @@ html
                 |Artist
               ul
                 li
-                  = link_to new_product_path do
-                    |Upload product
+                  = link_to new_item_path do
+                    | Upload item
                 li
-                  a href="#"
-                    |Subnav Item
+                  = link_to my_items_path do
+                    | My items
       div id='content'
         div class="row"
           div class="col-md-10 col-md-offset-1"

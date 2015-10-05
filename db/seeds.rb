@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Role.create([{name: 'admin'}, {name: 'artist'}, {name: 'client'}])
-admin = User.create(email: "admin@arters.com", name: "admin", last_name: "admin", username: "admin", password: 'aguacate', password_confirmation: 'aguacate')
+Role.create([{ name: 'admin' }, { name: 'artist' }, { name: 'client' }])
+admin = User.create(email: 'admin@arters.com', name: 'admin', last_name: 'admin', username: 'admin', password: 'aguacate', password_confirmation: 'aguacate')
 admin.user_roles.first.destroy
 UserRole.create(user: admin, role_id: 1)

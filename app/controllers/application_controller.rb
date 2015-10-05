@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
   end
 
   def user_signed_in?
-  	return true if session[:user_id]
-  	false
+    return true if session[:user_id]
+    false
   end
 
   private
 
   def choose_layout
-  	return 'not_logged' if !user_signed_in?
+    return 'not_logged' unless user_signed_in?
     session[:role]
   end
 end

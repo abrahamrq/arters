@@ -9,6 +9,6 @@ class ArtistRequest < ActiveRecord::Base
   validates :user, presence: true
 
   def authorize_user
-  	UserRole.create(user: self.user, role_id: 2) if accepted?
+    UserRole.create(user: user, role_id: 2) if accepted?
   end
 end

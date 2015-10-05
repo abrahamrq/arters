@@ -30,19 +30,19 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.roles.where(name: 'admin').any?
+    roles.where(name: 'admin').any?
   end
 
   def client?
-    self.roles.where(name: 'client').any?
+    roles.where(name: 'client').any?
   end
 
   def artist?
-    self.roles.where(name: 'artist').any?
+    roles.where(name: 'artist').any?
   end
 
   def main_role
-    self.roles.order('id ASC').first.name
+    roles.order('id ASC').first.name
   end
 
   private
@@ -59,6 +59,6 @@ class User < ActiveRecord::Base
   def valid_confirmation?
     valid = password == password_confirmation
     errors.add(:password_confirmation, 'wrong confirmation') unless valid
-    return valid
+    valid
   end
 end

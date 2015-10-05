@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def sweet_alert_title(symbol)
+  def sweet_alert_title(symbol)
     return 'Success' if symbol == :success
     return 'Info' if symbol == :info
     return 'Error' if symbol == :error

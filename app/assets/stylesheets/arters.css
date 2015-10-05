@@ -37,4 +37,5 @@
 
 tr.item_row:hover{
 	opacity: .7;
+	cursor: pointer;
 }

@@ -21,7 +21,6 @@ Rails.application.routes.draw do
       get 'upload_item', to: 'items#new', as: :new_item
       post 'upload_item', to: 'items#create', as: :create_item
       get 'my_items', to: 'items#my_items', as: :my_items
-      get 'item/:id', to: 'items#show', as: :item
     end
 
     # Just if you are an admin
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   # For everyone
+  get 'item/:id', to: 'items#show', as: :item
   get 'items/by_category', to: 'items#index_by_category', as: :items_by_category
   post 'items/by_category', to: 'items#choose_category',
                             as: :choose_category,

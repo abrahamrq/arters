@@ -13,4 +13,5 @@ class Item < ActiveRecord::Base
                                                        greater_than: 0 }
   validates :description, presence: true
   validates :image_url, presence: true
+  validates :price, presence: true, numericality: true
 end

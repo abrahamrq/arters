@@ -1,4 +1,4 @@
-h2
+h2 id="choose_category_header"
 	| Choose a category
 div class="row well"
 	- @categories.each do |category|
@@ -11,12 +11,14 @@ div id="category_items"
 javascript:
 	$(function(){
 		$('.category_link').click(function(){
+			category = this.id
 			$.ajax({
 				url: '/items/by_category',
 				type: 'POST',
-				data: {category: this.id},
+				data: {category: category},
 				success: function(){
 					initialize_datatables();
+					$('#choose_category_header').html('Choose a category (' + category +')');
 				},
 				fail: function(){
 					swal('Error', 'Something went wrong', 'error');

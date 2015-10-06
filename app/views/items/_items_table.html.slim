@@ -10,6 +10,8 @@ table class="table table-striped datatable"
       th
         |Quantity
       th
+        |Price
+      th
         |Status
   tbody
     - @items.each do |item|
@@ -18,9 +20,11 @@ table class="table table-striped datatable"
           = image_tag( item.image_url, size: "120")
         td style="width: 10%"
           = item.name
-        td style="width: 50%"
+        td style="width: 40%"
           = item.description
         td style="width: 10%"
           = item.quantity
+        td style="width: 10%"
+          = number_to_currency item.price.round(2)
         td style="width: 10%"
           = item.status

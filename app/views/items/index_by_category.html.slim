@@ -1,0 +1,27 @@
+h2
+	| Choose a category
+div class="row well"
+	- @categories.each do |category|
+		div class="col-md-4 category_container"
+				b
+					a href='#' class='category_link' id='#{category}'
+						= category
+div id="category_items"
+
+javascript:
+	$(function(){
+		$('.category_link').click(function(){
+			$.ajax({
+				url: '/items/by_category',
+				type: 'POST',
+				data: {category: this.id},
+				success: function(){
+					initialize_datatables();
+				},
+				fail: function(){
+					swal('Error', 'Something went wrong', 'error');
+				}
+			});
+		});
+	});
+			

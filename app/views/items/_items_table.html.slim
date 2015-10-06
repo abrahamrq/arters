@@ -1,7 +1,7 @@
 table class="table table-striped datatable"
   thead
     tr
-      th
+      th class='no-sort'
         |Image
       th
         |Name
@@ -24,8 +24,3 @@ table class="table table-striped datatable"
           = item.quantity
         td style="width: 10%"
           = item.status
-
-javascript:
-  function visitItem(item_id){
-    location.assign("item/"+item_id);
-  };

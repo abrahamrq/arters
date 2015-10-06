@@ -18,16 +18,14 @@ html
           ul
             li
               a href="#"
-                | Nav Item
+                | Items
               ul
                 li
-                  a href="#"
-                    |Subnav Item
+                  = link_to items_by_category_path do
+                    | By Category
                 li
                   a href="#"
-                    |Subnav Item
-                li
-                  a href="#">Subnav Item</a></li>
+                    | By Artist
             li
               a href="#"
                 |Nav Item

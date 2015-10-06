@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # MINE
 
+gem 'enum_help'
 gem 'jquery-turbolinks'
 gem 'puma'
 gem 'simple_form'

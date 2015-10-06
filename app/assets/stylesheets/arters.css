@@ -39,3 +39,11 @@ tr.item_row:hover{
 	opacity: .7;
 	cursor: pointer;
 }
+
+.category_container{
+	text-align: center;
+}
+
+a.category_link{
+	color: #333333;
+}

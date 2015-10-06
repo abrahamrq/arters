@@ -22,7 +22,12 @@
 //= require moment
 //= require_tree .
 
-$(function(){
+function initialize_datatables(){
 	$('.datatable').DataTable({
+		"aoColumnDefs" : [ { "bSortable": false, "aTargets" : [ "no-sort" ] } ]
 	});
+};
+
+$(function(){
+	initialize_datatables();
 });

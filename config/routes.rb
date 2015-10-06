@@ -29,7 +29,13 @@ Rails.application.routes.draw do
       get 'accept_requests', to: 'requests#index', as: :accept_requests
       post 'change_status', to: 'requests#change_status', as: :change_status
     end
-    # For everyone
+    # For every role
     get 'logout', to: 'sessions#destroy', as: :logout
   end
+
+  # For everyone
+  get 'items/by_category', to: 'items#index_by_category', as: :items_by_category
+  post 'items/by_category', to: 'items#choose_category',
+                            as: :choose_category,
+                            format: :js
 end

@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
   acts_as_paranoid
 
   enum status: [:in_stock, :out_of_stock]
-  enum status: [:ceramics, :design, :drawing, :jewellery, :painting,
+  enum category: [:ceramics, :design, :drawing, :jewellery, :painting,
                 :photography, :sculpture, :glass]
 
   belongs_to :user, inverse_of: :items
@@ -13,8 +13,4 @@ class Item < ActiveRecord::Base
                                                        greater_than: 0 }
   validates :description, presence: true
   validates :image_url, presence: true
-
-  def authorize_user
-    UserRole.create(user: user, role_id: 2) if accepted?
-  end
 end

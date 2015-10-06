@@ -2,6 +2,7 @@
     = f.input :name, placeholder: 'Eg. Mona lisa'
     = f.input :description, placeholder: 'Describe your item'
     = f.input :image_url, placeholder: 'Url to an imagee'
+    = f.input :category, include_blank: false
     = f.input :quantity
     div class="actions"
       = link_to root_path, class: "btn btn-md btn-primary float-left" do

@@ -21,10 +21,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def index
+  def index_by_category
+    @categories = Item.categories.keys
   end
 
-  def index_by(_category)
+  def choose_category
+    @items = Item.send(params[:category])
   end
 
   private

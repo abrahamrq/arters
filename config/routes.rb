@@ -23,6 +23,16 @@ Rails.application.routes.draw do
       get 'my_items', to: 'items#my_items', as: :my_items
     end
 
+    # Just if you are a client or an artist
+    scope constraints: ->(req) { ['client', 'artist'].include?(req.session[:role]) } do
+      post 'items/add_to_cart', to: 'shopping_cart#add_to_cart',
+                                as: :add_to_cart
+      post 'items/delete_from_cart', to: 'shopping_cart#delete_from_cart',
+                                     as: :delete_from_cart
+      get 'my_cart', to: 'shopping_cart#show', as: :my_cart
+      get 'checkout', to: 'shopping_cart#check_out', as: :check_out
+    end
+
     # Just if you are an admin
     scope constraints: ->(req) { req.session[:role] == 'admin' } do
       get 'accept_requests', to: 'requests#index', as: :accept_requests

@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   has_many :user_roles, inverse_of: :user
   has_many :artist_requests, inverse_of: :user
   has_many :items, inverse_of: :user
-  has_many :expected_items, inverse_of: :possible_buyer, class_name: 'Item'
+  has_many :expected_items, inverse_of: :possible_buyer,
+                            class_name: 'Item',
+                            foreign_key: 'possible_buyer_id'
 
   validates :name, presence: true
   validates :last_name, presence: true

@@ -30,7 +30,7 @@ gem 'awesome_nested_fields'
 gem 'sweetalert-rails'
 gem 'sweet-alert-confirm'
 gem 'momentjs-rails', '>= 2.8.1'
-gem "selectize-rails"
+gem 'selectize-rails'
 
 group :development, :test do
   gem 'pry-rails'

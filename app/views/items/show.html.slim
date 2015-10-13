@@ -1,4 +1,11 @@
 h1 class="page-title"
-  = @item.name.titleize
+	= @item.name.titleize
 div class="row"
-  div class="col-md-10 col-md-offset-1"
+	div class="col-md-10 col-md-offset-1"
+		div class="col-md-12"
+			- if !@item.already_chosen?
+				= link_to add_to_cart_path(id: @item.id), method: 'POST', class: 'btn btn-primary pull-right'
+					| Add To Cart
+			- elsif @item.possible_buyer == current_user
+				= link_to delete_from_cart_path(id: @item.id), method: 'POST', class: 'btn btn-primary pull-right'
+					| Delete From Cart

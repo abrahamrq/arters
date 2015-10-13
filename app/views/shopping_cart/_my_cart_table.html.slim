@@ -1,0 +1,45 @@
+table class="table table-striped"
+	thead
+		tr
+			th class='no-sort'
+				|Image
+			th
+				|Name
+			th
+				|Artist
+			th
+				|Description
+			th
+				|Price
+			th
+				|Remove
+	tbody
+		- @items.each do |item|
+			tr class="cart_item_row"
+				td style="width: 20%"
+					= image_tag( item.image_url, size: "120")
+				td style="width: 10%"
+					= item.name
+				td style="width: 10%"
+					= item.user.full_name
+				td style="width: 45%"
+					= item.description
+				td style="width: 10%"
+					= number_to_currency item.price.round(2)
+				td style="width: 5%; text-align: center;"
+					= link_to delete_from_cart_path(id: item.id), method: 'POST', class: 'btn btn-danger'
+						i class="fa fa-trash"
+		tfoot
+			tr
+				td style="width: 20%"
+				td style="width: 10%"
+				td style="width: 10%"
+				td style="width: 45%; text-align: right;"
+					b
+						| Total
+				td style="width: 10%"
+					= number_to_currency @items.sum(:price).round(2)
+				td style="width: 5%; text-align: center;"
+					- if @items.any?
+						button class='btn btn-success' id='check_out'
+							| Check Out

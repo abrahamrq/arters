@@ -13,6 +13,8 @@
  *= require font-awesome
  *= require sweet-alert
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require selectize
+ *= require selectize.bootstrap3
  *= require_tree .
  *= require_self
  */

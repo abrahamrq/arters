@@ -29,10 +29,20 @@ class ItemsController < ApplicationController
     @items = Item.send(params[:category])
   end
 
+  def index_by_artist
+    @artists = User.artists
+  end
+
+  def choose_artist
+    @artist = User.find_by_username(params[:username])
+    return @items = @artist.items if @artist
+    @items = []
+  end
+
   private
 
   def object_params
-    params.require(:item).permit(:name, :description, :image_url, :quantity,
+    params.require(:item).permit(:name, :description, :image_url,
                                  :category, :price)
       .merge(user_id: current_user.id)
   end

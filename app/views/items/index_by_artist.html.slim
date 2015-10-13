@@ -1,0 +1,28 @@
+h2 id="choose_artist_header"
+	| Choose an Artist
+div class="row well"
+	select id='artist_selector' class='selectize'
+		option value="none"
+			|None
+		- @artists.each do |artist|
+			option value="#{artist.username}"
+				= artist.username
+div id="artist_items"
+
+javascript:
+	$(function(){
+		$('#artist_selector').on('change', function(){
+			username = $(this).val();
+			$.ajax({
+				url: '/items/by_artist',
+				type: 'POST',
+				data: {username: username},
+				success: function(){
+					initialize_datatables();
+				},
+				fail: function(){
+					swal('Error', 'Something went wrong', 'error');
+				}
+			});
+		});
+	});

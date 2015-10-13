@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :user_roles, inverse_of: :user
   has_many :artist_requests, inverse_of: :user
   has_many :items, inverse_of: :user
+  has_many :expected_items, inverse_of: :possible_buyer, class_name: 'Item'
 
-  validates :username, presence: true
   validates :name, presence: true
   validates :last_name, presence: true
   validates :password_hash, presence: true, on: :update
@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: true, scope: :deleted_at }
+  validates :username, presence: true, uniqueness: { case_sensitive: true,
+                                                     scope: :deleted_at }
   validate :valid_confirmation?, on: :create
 
   attr_accessor :password
@@ -24,6 +26,10 @@ class User < ActiveRecord::Base
 
   before_create :encrypt
   after_create :create_role
+
+  def self.artists
+    User.joins(:user_roles).where('user_roles.role_id = 2')
+  end
 
   def full_name
     "#{name} #{last_name}"

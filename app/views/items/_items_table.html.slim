@@ -6,9 +6,9 @@ table class="table table-striped datatable"
       th
         |Name
       th
-        |Description
+        |Artist
       th
-        |Quantity
+        |Description
       th
         |Price
       th
@@ -20,10 +20,10 @@ table class="table table-striped datatable"
           = image_tag( item.image_url, size: "120")
         td style="width: 10%"
           = item.name
+        td style="width: 10%"
+          = item.user.full_name
         td style="width: 40%"
           = item.description
-        td style="width: 10%"
-          = item.quantity
         td style="width: 10%"
           = number_to_currency item.price.round(2)
         td style="width: 10%"

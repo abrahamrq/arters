@@ -20,6 +20,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require moment
+//= require selectize
 //= require_tree .
 
 function initialize_datatables(){
@@ -29,5 +30,6 @@ function initialize_datatables(){
 };
 
 $(function(){
+	$('.selectize').selectize();
 	initialize_datatables();
 });

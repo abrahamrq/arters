@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.4'
 gem 'i18n', github: 'svenfuchs/i18n'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -30,6 +30,7 @@ gem 'awesome_nested_fields'
 gem 'sweetalert-rails'
 gem 'sweet-alert-confirm'
 gem 'momentjs-rails', '>= 2.8.1'
+gem "selectize-rails"
 
 group :development, :test do
   gem 'pry-rails'

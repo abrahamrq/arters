@@ -38,4 +38,8 @@ Rails.application.routes.draw do
   post 'items/by_category', to: 'items#choose_category',
                             as: :choose_category,
                             format: :js
+  get 'items/by_artist', to: 'items#index_by_artist', as: :items_by_artist
+  post 'items/by_artist', to: 'items#choose_artist',
+                          as: :choose_artist,
+                          format: :js
 end

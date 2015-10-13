@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "image_url",   limit: 255
     t.integer  "category",                default: 0
     t.integer  "status",                  default: 0
-    t.integer  "quantity"
     t.integer  "user_id"
+    t.integer  "possible_buyer_id"
+    t.integer  "buyer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"

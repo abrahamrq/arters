@@ -47,3 +47,11 @@ tr.item_row:hover{
 a.category_link{
 	color: #333333;
 }
+
+.shopping_cart_link{
+	font-size: 3em;
+	margin-right: 15px;
+}
+.shopping_cart_link a{
+	color: #333333;
+}

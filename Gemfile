@@ -22,6 +22,7 @@ gem 'paranoia', '2.0.4'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails',
                             branch: 'master', submodules: true
 gem 'bcrypt'
+gem 'country_select'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-datatables-rails', '~> 3.1.1'

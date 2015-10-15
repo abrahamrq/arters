@@ -25,11 +25,12 @@
 
 function initialize_datatables(){
 	$('.datatable').DataTable({
-		"aoColumnDefs" : [ { "bSortable": false, "aTargets" : [ "no-sort" ] } ]
+		"aoColumnDefs" : [ {"bSortable": false, "aTargets" : [ "no-sort" ] } ]
 	});
 };
 
 $(function(){
 	$('.selectize').selectize();
 	initialize_datatables();
+	$('.disabled_button').prop( "disabled", true );
 });

@@ -5,9 +5,7 @@ class User < ActiveRecord::Base
   has_many :user_roles, inverse_of: :user
   has_many :artist_requests, inverse_of: :user
   has_many :items, inverse_of: :user
-  has_many :expected_items, inverse_of: :possible_buyer,
-                            class_name: 'Item',
-                            foreign_key: 'possible_buyer_id'
+  has_many :orders, inverse_of: :user
 
   validates :name, presence: true
   validates :last_name, presence: true
@@ -33,6 +31,10 @@ class User < ActiveRecord::Base
     User.joins(:user_roles).where('user_roles.role_id = 2')
   end
 
+  def expected_items
+    Item.where(possible_buyer_id: self.id, buyer_id: nil)
+  end
+
   def full_name
     "#{name} #{last_name}"
   end
@@ -51,6 +53,15 @@ class User < ActiveRecord::Base
 
   def main_role
     roles.order('id ASC').first.name
+  end
+
+  def shopping_cart_size
+    expected_items.size
+  end
+
+  def country_name
+    country = ISO3166::Country[country]
+    country.translations[I18n.locale.to_s] || country.name
   end
 
   private

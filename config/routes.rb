@@ -31,6 +31,7 @@ Rails.application.routes.draw do
                                      as: :delete_from_cart
       get 'my_cart', to: 'shopping_cart#show', as: :my_cart
       get 'checkout', to: 'shopping_cart#check_out', as: :check_out
+      post 'checkout', to: 'shopping_cart#create_order'
     end
 
     # Just if you are an admin

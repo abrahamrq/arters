@@ -2,7 +2,7 @@ $(function(){
 	$('#check_out').click(function(){
 		swal({
 			title: "Are you sure?",
-			text: "You want to proceed to the check sout",
+			text: "You want to proceed to the check out",
 			type: "warning",
 			showCancelButton: true,
 			confirmButtonText: "Proceed",

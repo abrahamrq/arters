@@ -37,12 +37,27 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer 'user_id'
     t.integer 'possible_buyer_id'
     t.integer 'buyer_id'
+    t.integer 'order_id'
     t.datetime 'created_at'
     t.datetime 'updated_at'
     t.datetime 'deleted_at'
   end
 
   add_index 'items', ['deleted_at'], name: 'index_items_on_deleted_at', using: :btree
+
+  create_table 'orders', force: :cascade do |t|
+    t.integer 'user_id'
+    t.string 'address',       limit: 255
+    t.string 'city',          limit: 255
+    t.string 'state',         limit: 255
+    t.string 'country',       limit: 255
+    t.string 'zip_code',      limit: 255
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
+    t.datetime 'deleted_at'
+  end
+
+  add_index 'orders', ['deleted_at'], name: 'index_orders_on_deleted_at', using: :btree
 
   create_table 'roles', force: :cascade do |t|
     t.string 'name',       limit: 255

@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
                   :photography, :sculpture, :glass]
 
   belongs_to :user, inverse_of: :items
-  belongs_to :possible_buyer, inverse_of: :expected_items, class_name: 'User'
+  belongs_to :order, inverse_of: :items
 
   validates :user, presence: true
   validates :name, presence: true
@@ -14,6 +14,10 @@ class Item < ActiveRecord::Base
   validates :image_url, presence: true
   validates :price, presence: true, numericality: true
   validate :not_already_chosen, on: :update
+
+  def possible_buyer
+    User.find_by_id(possible_buyer_id)
+  end
 
   def already_chosen?
     possible_buyer_id?

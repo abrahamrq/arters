@@ -6,10 +6,11 @@ class ShoppingCartController < ApplicationController
     if @item.save
       @item.chosen!
       flash[:success] = 'Item added to cart'
+      redirect_to my_cart_path
     else
-      flash[:error] = "The item you selected can not be added to your cart"
+      flash[:error] = @item.errors.messages.values.join(', ')
+      redirect_to item_path(@item)
     end
-    redirect_to my_cart_path
   end
 
   def delete_from_cart
@@ -33,7 +34,7 @@ class ShoppingCartController < ApplicationController
     @order = Order.new(order_params)
     if @order.save
       flash[:success] = 'Order created'
-      redirect_to my_items_path
+      redirect_to my_orders_path
     else
       binding.pry
       render :check_out

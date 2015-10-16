@@ -23,6 +23,12 @@ Rails.application.routes.draw do
       get 'my_items', to: 'items#my_items', as: :my_items
     end
 
+    # User.find(req.session[:user_id]).orders.pluck(:id).include?(req.env['action_dispatch.request.path_parameters'][:id].to_i)
+    scope constraints: ->(req) { Order.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).try(:user_id) == req.session[:user_id]} do
+      get 'order/:id', to: 'orders#show', as: :order
+    end
+
+
     # Just if you are a client or an artist
     scope constraints: ->(req) { ['client', 'artist'].include?(req.session[:role]) } do
       post 'items/add_to_cart', to: 'shopping_cart#add_to_cart',
@@ -32,6 +38,7 @@ Rails.application.routes.draw do
       get 'my_cart', to: 'shopping_cart#show', as: :my_cart
       get 'checkout', to: 'shopping_cart#check_out', as: :check_out
       post 'checkout', to: 'shopping_cart#create_order'
+      get 'my_orders', to: 'orders#index', as: :my_orders
     end
 
     # Just if you are an admin

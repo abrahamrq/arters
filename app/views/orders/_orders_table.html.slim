@@ -1,0 +1,44 @@
+table class="table table-striped datatable"
+	thead
+		tr
+			th
+				|Created Date
+			th
+				|Address
+			th
+				|City
+			th
+				|State
+			th
+				|Country
+			th
+				|Zip Code
+			th
+				|Cost
+	tbody
+		- @orders.each do |order|
+			tr class="order_row" onclick="visitOrder(#{order.id})"
+				td style="width: 20%"
+					= order.created_at
+				td style="width: 30%"
+					= order.address
+				td style="width: 10%"
+					= order.city
+				td style="width: 10%"
+					= order.state
+				td style="width: 10%"
+					= order.country_name
+				td style="width: 10%"
+					= order.zip_code
+				td style="width: 10%"
+					= number_to_currency order.cost
+	tfoot
+		td style="width: 20%"
+		td style="width: 30%"
+		td style="width: 10%"
+		td style="width: 10%"
+		td colspan='2' style="width: 20%;"
+			b class='float-right'
+				| Total
+		td style="width: 10%"
+			= number_to_currency @total

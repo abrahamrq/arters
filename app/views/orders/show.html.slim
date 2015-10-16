@@ -1,0 +1,10 @@
+h1 class="page-title"
+	= "Order ##{@order.id}"
+div class="row"
+	h2
+		| Items ordered
+	div class="col-md-10 col-md-offset-1"
+		- @order.items.each do |item|
+			div class="col-md-4 item_order_show"
+				= image_tag( item.image_url, size: "120")
+

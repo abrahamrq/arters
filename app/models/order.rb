@@ -12,6 +12,15 @@ class Order < ActiveRecord::Base
   validates :country, presence: true
   validates :zip_code, presence: true, length: { in: 5..10 }
 
+  def country_name
+    country = ISO3166::Country[self.country]
+    country.translations[I18n.locale.to_s] || country.name
+  end
+
+  def cost
+    items.sum(:price)
+  end
+
   private
 
   def set_items
@@ -20,6 +29,7 @@ class Order < ActiveRecord::Base
   		item.possible_buyer_id = nil
   		item.buyer_id = self.user_id
   		item.order_id = self.id
+      item.status = 'sold'
   		item.save(validate: false)
   	end
   end

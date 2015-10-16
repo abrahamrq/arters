@@ -55,3 +55,12 @@ a.category_link{
 .shopping_cart_link a{
 	color: #333333;
 }
+
+tr.order_row:hover{
+	opacity: .7;
+	cursor: pointer;
+}
+
+.item_order_show{
+	text-align: center;
+}

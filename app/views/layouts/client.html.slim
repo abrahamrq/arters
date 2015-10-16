@@ -11,9 +11,12 @@ html
       = render '/layouts/sweet_alerts'
       div id='header'
         div class="top-header"
-          div class="register-login"
+          span class="register-login"
             = link_to logout_path do 
               | Logout
+          span class='shopping_cart_link pull-right' title="#{current_user.shopping_cart_size}"
+            = link_to my_cart_path do
+              i class="fa fa-shopping-cart fa-4"
         nav class="nav nav5"
           ul
             li
@@ -26,45 +29,45 @@ html
                 li
                   = link_to items_by_artist_path do
                     | By Artist
-            li
-              a href="#"
-                |Nav Item
-              ul
-                li
-                  a href="#"
-                    |Subnav Item
-                li
-                  a href="#"
-                    |Subnav Item
-                li
-                  a href="#"
-                    |Subnav Item
-            li
-              a href="#"
-                |Nav Item
-              ul
-                li
-                  a href="#"
-                    | Subnav Item
-                li
-                  a href="#"
-                    | Subnav Item
-                li
-                  a href="#"
-                    | Subnav Item
-            li
-              a href="#"
-                |Nav Item
-              ul
-                li
-                  a href="#"
-                    |Subnav Item
-                li
-                  a href="#"
-                    |Subnav Item
-                li
-                  a href="#"
-                    |Subnav Item
+            / li
+            /   a href="#"
+            /     |Nav Item
+            /   ul
+            /     li
+            /       a href="#"
+            /         |Subnav Item
+            /     li
+            /       a href="#"
+            /         |Subnav Item
+            /     li
+            /       a href="#"
+            /         |Subnav Item
+            / li
+            /   a href="#"
+            /     |Nav Item
+            /   ul
+            /     li
+            /       a href="#"
+            /         | Subnav Item
+            /     li
+            /       a href="#"
+            /         | Subnav Item
+            /     li
+            /       a href="#"
+            /         | Subnav Item
+            / li
+            /   a href="#"
+            /     |Nav Item
+            /   ul
+            /     li
+            /       a href="#"
+            /         |Subnav Item
+            /     li
+            /       a href="#"
+            /         |Subnav Item
+            /     li
+            /       a href="#"
+            /         |Subnav Item
             li
               a href="#"
                 |Artist

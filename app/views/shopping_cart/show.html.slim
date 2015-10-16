@@ -1,5 +1,11 @@
-h1 class="page-title"
-  | My Cart
 div class="row"
-  div class="col-md-10 col-md-offset-1"
-      = render partial: 'my_cart_table'
+	div class="col-md-3"
+	div class="col-md-6"
+		h1 class="page-title"
+			| My Cart
+	div class="col-md-3"
+		= link_to my_orders_path, class: "btn btn-md btn-primary float-right" do
+			| Orders History
+div class="row"
+	div class="col-md-10 col-md-offset-1"
+			= render partial: 'my_cart_table'

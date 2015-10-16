@@ -14,6 +14,7 @@ class Item < ActiveRecord::Base
   validates :image_url, presence: true
   validates :price, presence: true, numericality: true
   validate :not_already_chosen, on: :update
+  validate :yours?, on: :update
 
   def possible_buyer
     User.find_by_id(possible_buyer_id)
@@ -28,6 +29,13 @@ class Item < ActiveRecord::Base
   end
 
   private
+
+  def yours?
+    return unless changes[:possible_buyer_id]
+    if changes[:possible_buyer_id][1] == self.user_id
+      errors.add(:possible_buyer_id, 'You are the owner of these item')
+    end
+  end
 
   def not_already_chosen
     return unless changes[:possible_buyer_id]

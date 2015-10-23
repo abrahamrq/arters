@@ -39,6 +39,21 @@ class ItemsController < ApplicationController
     @items = []
   end
 
+  def edit_item
+    @item = Item.find(params[:id])
+  end
+
+  def update_item
+    @item = Item.find(params[:id])
+    if @item.update(object_params)
+      flash[:success] = "Item updated";
+      redirect_to item_path(@item)
+    else
+      flash[:error] = "Something went wrong"
+      render :edit_item
+    end
+  end
+
   private
 
   def object_params

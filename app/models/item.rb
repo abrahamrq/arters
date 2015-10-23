@@ -15,6 +15,7 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: true
   validate :not_already_chosen, on: :update
   validate :yours?, on: :update
+  validate :update_in_stock, on: :update
 
   def possible_buyer
     User.find_by_id(possible_buyer_id)
@@ -42,5 +43,11 @@ class Item < ActiveRecord::Base
     unless changes[:possible_buyer_id].include?(nil)
       errors.add(:possible_buyer_id, 'Already chosen by an user')
     end
+  end
+
+  def update_in_stock
+    return if in_stock?
+    errors.add(:status, "Unable to edit an item that is "\
+                        "sold or in a shopping cart")
   end
 end

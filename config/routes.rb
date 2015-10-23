@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       get 'upload_item', to: 'items#new', as: :new_item
       post 'upload_item', to: 'items#create', as: :create_item
       get 'my_items', to: 'items#my_items', as: :my_items
+      scope constraints: ->(req) { Item.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).try(:user_id) == req.session[:user_id] && Item.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).in_stock?} do
+        get 'edit_item/:id', to: 'items#edit_item', as: :edit_item
+        patch 'edit_item/:id', to: 'items#update_item'
+      end
     end
 
     # User.find(req.session[:user_id]).orders.pluck(:id).include?(req.env['action_dispatch.request.path_parameters'][:id].to_i)

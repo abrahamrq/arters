@@ -8,7 +8,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  background: #333;
+  background: #558C89;
 }
 .nav ul:before,
 .nav ul:after {
@@ -27,14 +27,14 @@
   padding: 10px 20px;
   line-height: 1.2em;
   color: #fff;
-  border-left: 1px solid #595959;
+  border-left: 1px solid #80b2af;
 }
 .nav a:hover {
   text-decoration: none;
-  background: #595959;
+  background: #80b2af;
 }
 .nav li ul {
-  background: #273754;
+  background: #70a8a5;
 }
 .nav li ul li {
   width: 200px;

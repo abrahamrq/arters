@@ -26,13 +26,39 @@ body {
   padding:0;
   height:100%;
 }
-#wrapper {
-	height:100%;
-  min-height:100%;
-  position:relative;
+
+.retro {
+  .box-sizing(content-box);
+  margin: 0 auto;
+  border: none;
+  font: normal 70px/normal "Anton", Helvetica, sans-serif;
+  color: #558C89;
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 4px;
+  text-shadow: 4px 4px 0 #ECECEA , 6px 6px 0 #558C89 ;
 }
+
+
 #body {
   padding-bottom:100px;   /* Height of the footer */
+
+}
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+  background: #cfe2e2;
+}
+#content {
+  padding-bottom:100px; /* Height of the footer element */
 }
 #main-typeahead{
   margin-top: 10px;
@@ -44,9 +70,12 @@ body {
 .twitter-typeahead{
   width: 100%;
 }
-/*#footer {
+
+#footer {
+  background:#ECECEA;
+  width:100%;
+  height:60px;
   position:absolute;
   bottom:0;
-  width:100%;
-  height:100px;
-}*/
+  left:0;
+}

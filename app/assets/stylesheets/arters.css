@@ -7,7 +7,7 @@
 
 
 .header-arters{
-	margin-left: 50px;
+	margin-left: 20px;
 	margin-top: 5px;
 	float: left;
 }
@@ -53,7 +53,7 @@ b > a:hover{
 .register-login{
 	float: right;
 	margin-right: 20px;
-	margin-top: 20px;
+	margin-top: 35px;
 }
 
 .footer-year{
@@ -111,7 +111,8 @@ a.category_link{
 
 .shopping_cart_link{
 	font-size: 3em;
-	margin-right: 15px;
+	margin-right: 20px;
+	margin-top: 15px;
 }
 .shopping_cart_link a{
 	color: #333333;

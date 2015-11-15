@@ -7,16 +7,47 @@
   */
 
 .btn-primary{
-	background-color: #333;
-	border: 1px solid #595959;
+	background-color: #D9853B;
+  border: none;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font: normal normal bold 15px/normal "Anton", Helvetica, sans-serif;
+
 }
 
 .btn-primary:hover{
-	background-color: #4A4949;
-  border: 1px solid #595959;
+	background-color: rgb(229, 17, 17);
+  border: none;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.btn-default{
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font: normal normal bold 15px/normal "Anton", Helvetica, sans-serif;
+
+}
+
+.btn-default:hover{
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
 }
 
 .row{
 	margin-right: 0px;
 	margin-left: 0px;
+}
+
+label,h1,h2,h4{
+    color: #D9853B;
+
+}
+
+.shopping_cart_link a {
+    color: #D9853B;
+}
+
+.shopping_cart_link a:hover {
+    color: rgb(229, 17, 17);
 }

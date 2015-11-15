@@ -3,8 +3,8 @@ class ShoppingCartController < ApplicationController
 
   def add_to_cart
     @item.possible_buyer_id = current_user.id
+    @item.status = 'chosen'
     if @item.save
-      @item.chosen!
       flash[:success] = 'Item added to cart'
       redirect_to my_cart_path
     else

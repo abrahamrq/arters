@@ -21,6 +21,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require moment
 //= require selectize
+//= require bootstrap-typeahead-rails
 //= require_tree .
 
 function initialize_datatables(){
@@ -29,8 +30,32 @@ function initialize_datatables(){
 	});
 };
 
+function initialize_main_search(){
+	var items_bloodhound = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.whitespace,
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  remote: '/items_search.json?q=%QUERY',
+	});
+
+	items_bloodhound.initialize();
+
+	$('#main-typeahead').typeahead(null, {
+    displayKey: 'name',
+    source: items_bloodhound.ttAdapter()
+  })
+  
+   $('#main-typeahead').on('typeahead:selected', function (e, object, dataset){
+    if (object.id) {
+      $('#vehicle_id_select').val(object.id);
+      $("#service_type_select").show();
+      serviceSelectionsLoad(object.id);
+    };
+  });
+};
+
 $(function(){
 	$('.selectize').selectize();
 	initialize_datatables();
 	$('.disabled_button').prop( "disabled", true );
+	initialize_main_search();
 });

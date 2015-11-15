@@ -54,6 +54,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def items_search
+    q = "%#{params[:q]}%"
+    @found_items = Item.where("name ILIKE ? OR description ILIKE ?", q, q)
+  end
+
   private
 
   def object_params

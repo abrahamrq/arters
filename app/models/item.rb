@@ -29,6 +29,10 @@ class Item < ActiveRecord::Base
     buyer_id?
   end
 
+  def search_name
+    "#{name} - #{description[0,100]}#{description.length > 100 ? '...' : ''}"
+  end
+
   private
 
   def yours?

@@ -32,6 +32,7 @@ gem 'sweetalert-rails'
 gem 'sweet-alert-confirm'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'selectize-rails'
+gem 'bootstrap-typeahead-rails'
 
 group :development, :test do
   gem 'pry-rails'

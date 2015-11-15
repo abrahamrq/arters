@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       get 'checkout', to: 'shopping_cart#check_out', as: :check_out
       post 'checkout', to: 'shopping_cart#create_order'
       get 'my_orders', to: 'orders#index', as: :my_orders
+      get '/items_search', to: 'items#items_search',
+                           as: :items_search, defaults: { format: 'json' }
     end
 
     # Just if you are an admin

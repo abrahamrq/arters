@@ -10,20 +10,21 @@ html
     div id='wrapper'
       = render '/layouts/sweet_alerts'
       div id='header'
-        .row
-          .col-md-4
-            span class ="header-arters"
-              h2 id="arters-header" class="retro"
-                  | Arters
-          .col-md-4
-            input#main-typeahead.form-control type="text" placeholder="Type something..."
-          .col-md-4
-            span class="register-login"
-              = link_to new_registration_path do
-                | Register
-              a data-toggle="modal" data-target="#myModal"
-                | Login
-              = render '/layouts/login_modal'
+        div class="top-header"
+          .row
+            .col-md-4
+              span class ="header-arters"
+                h2 id="arters-header" class="retro"
+                    | Arters
+            .col-md-4
+              input#main-typeahead.form-control type="text" placeholder="Type something..."
+            .col-md-4
+              span class="register-login"
+                = link_to new_registration_path do
+                  | Register
+                a data-toggle="modal" data-target="#myModal"
+                  | Login
+                = render '/layouts/login_modal'
         nav class="nav nav5"
           ul
             li
@@ -94,12 +95,12 @@ html
             = yield
       div id='footer'
         div class="footer-div"
-            span class="footer-year"
-              | © 2015 Arters
-            span class="footer-story"
-            = link_to logout_path do 
-              | Our Story
-            span class="footer-about"
-            = link_to logout_path do 
-              | About Us
+          span class="footer-year"
+            | © 2015 Arters
+          span class="footer-story"
+          = link_to about_us_path do 
+            | About Us
+          span class="footer-about"
+          = link_to contact_us_path do 
+            | Contact Us
 

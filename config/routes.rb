@@ -57,6 +57,12 @@ Rails.application.routes.draw do
   end
 
   # For everyone
+    # STATIC PAGES
+  get 'contact_us', to: "welcome#contact_us", as: :contact_us
+  get 'about_us', to: "welcome#about_us", as: :about_us
+  get 'important_of_art', to: "welcome#important_of_art", as: :important_of_art
+
+
   get 'item/:id', to: 'items#show', as: :item
   get 'items/by_category', to: 'items#index_by_category', as: :items_by_category
   post 'items/by_category', to: 'items#choose_category',

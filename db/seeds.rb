@@ -1,26 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Role.create([{ name: 'admin' }, { name: 'artist' }, { name: 'client' }])
 admin = User.create(email: 'admin@arters.com', name: 'admin',
                     last_name: 'admin', username: 'admin', password: 'aguacate',
                     password_confirmation: 'aguacate')
 admin.user_roles.first.destroy
 UserRole.create(user: admin, role_id: 1)
-artist = User.create(email: 'artist@arters.com', name: 'artist',
-                     last_name: 'artist', username: 'artist',
+
+###### TEST ####################################################################
+
+artist = User.create(email: 'artist@arters.com', name: 'Abraham',
+                     last_name: 'Rodriguez', username: 'artist',
                      password: 'aguacate', password_confirmation: 'aguacate')
 artist_request = ArtistRequest.create(message: 'default', user_id: artist.id)
 artist_request.accepted!
 artist_request.authorize_user
 
-second_artist = User.create(email: 'second_artist@arters.com', name: 'artist',
-                            last_name: 'artist', username: 'second_artist',
+second_artist = User.create(email: 'second_artist@arters.com', name: 'Tania',
+                            last_name: 'Garrido', username: 'second_artist',
                             password: 'aguacate',
                             password_confirmation: 'aguacate')
 artist_request = ArtistRequest.create(message: 'default',

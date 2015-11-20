@@ -33,7 +33,6 @@ class ShoppingCartController < ApplicationController
       flash[:success] = 'Order created'
       redirect_to my_orders_path
     else
-      binding.pry
       render :check_out
     end
   end

@@ -15,77 +15,8 @@
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require selectize
  *= require selectize.bootstrap3
+ *=require twitter-bootstrap-static/bootstrap
  *= require bootstrap-typeahead-rails
  *= require_tree .
  *= require_self
  */
-
-html,
-body {
-  margin:0;
-  padding:0;
-  height:100%;
-}
-
-.retro {
-  .box-sizing(content-box);
-  margin: 0 auto;
-  border: none;
-  font: normal 40px/normal "Anton", Helvetica, sans-serif;
-  color: #558C89;
-  text-align: center;
-  text-transform: uppercase;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  letter-spacing: 4px;
-  text-shadow: 4px 4px 0 #ECECEA , 6px 6px 0 #558C89 ;
-}
-
-
-#body {
-  padding-bottom:100px;   /* Height of the footer */
-
-}
-html,
-body {
-  margin:0;
-  padding:0;
-  height:100%;
-}
-#wrapper {
-  min-height:100%;
-  position:relative;
-  background: #cfe2e2;
-}
-#content {
-  padding-bottom:100px; /* Height of the footer element */
-}
-#main-typeahead{
-  margin-top: 15px;
-  margin-left: 65px;
-  width: 100%;
-  
-}
-.tt-hint{
-  margin-left: 65px;
-  margin-top: 15px;
-}
-
-.tt-dropdown-menu{
-    margin-left: 65px;
-    width: 100%;
-}
-
-.twitter-typeahead{
-  width: 100%;
-
-}
-
-#footer {
-  background:#ECECEA;
-  width:100%;
-  height:60px;
-  position:absolute;
-  bottom:0;
-  left:0;
-}

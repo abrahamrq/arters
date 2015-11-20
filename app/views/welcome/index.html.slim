@@ -1,0 +1,16 @@
+div class="row"
+  div class="col-md-12 centered-text"
+    = image_tag "slogan.png"
+  div class="col-md-12"
+    hr
+  div class="col-md-12"
+    h3 class="centered-text"
+      | Recent Items
+  div class="col-md-12 well" style="background-color: rgba(195, 193, 193, 0.48);"
+    - Item.last(6).each do |item|
+      div class="col-md-4 centered-text"
+        = link_to item_path(item) do
+          = image_tag( item.image_url, size: "150")
+        br
+        h4
+          = item.name

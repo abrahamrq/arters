@@ -6,6 +6,8 @@ table class="table table-striped datatable"
       th
         |Username
       th
+        |URL
+      th
         |Message
       th
         |Actions
@@ -16,7 +18,13 @@ table class="table table-striped datatable"
           = request.user.full_name
         td style="width: 10%"
           = request.user.username
-        td style="width: 60%"
+        td style="width: 10%"
+          - if !request.url.blank?
+            a href="#{request.url}"
+              = request.url
+          - else
+            | None
+        td style="width: 50%"
           = request.message
         td style="width: 15%"
           button id="accept_button" type="button" class="btn btn-success" onclick="changeStatus('accepted', #{request.id})"

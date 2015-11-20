@@ -1,7 +1,9 @@
 = simple_form_for(@item, html: { novalidate: false }, url: path) do |f|
     = f.input :name, placeholder: 'Eg. Mona lisa'
     = f.input :description, placeholder: 'Describe your item'
-    = f.input :image_url, placeholder: 'Url to an imagee'
+    = f.input :dimensions, placeholder: 'Eg. 35in*35in, 2cm*2cm*5cm'
+    = f.input :year, placeholder: 'Eg. 2015'
+    = f.input :image_url, placeholder: 'Url to an image'
     = f.input :category, include_blank: false
     = f.input :price, placeholder: 'Price'
     div class="actions"

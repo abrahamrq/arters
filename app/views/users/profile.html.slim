@@ -1,0 +1,60 @@
+div class="row"
+  div class="col-md-12"
+    h1 class="page-title"
+      = @user.full_name
+  div class="col-md-12"
+    hr
+  div class="col-md-4 centered-text"
+    h4
+      | Items Sold: 
+    strong
+      = @user.items.where(status: 2).count
+  div class="col-md-4 centered-text"
+    h4
+      | Items Bought: 
+    strong
+      = @user.bought_items.count
+  div class="col-md-4 centered-text"
+    h4
+      | Member since
+    strong
+      = @user.created_at.strftime('%d/%m/%Y')
+  div class="col-md-12"
+    hr
+  div class="col-md-12"
+    table class="table table-striped datatable"
+      thead
+        tr
+          th class='no-sort'
+            |Image
+          th
+            |Name
+          th
+            |Description
+          th
+            |Price
+          th
+            |Status
+          - if @user == current_user
+            th
+              | Delete
+      tbody
+        - @user.items.each do |item|
+          tr class="item_row" onclick="visitItem(#{item.id})"
+            td style="width: 20%"
+              = image_tag( item.image_url, size: "120")
+            td style="width: 10%"
+              = item.name
+            td style="width: 50%"
+              = item.description
+            td style="width: 10%"
+              = number_to_currency item.price.round(2)
+            td style="width: 10%"
+              = item.status
+            - if @user == current_user
+              td style="width: 10%"
+                - if item.status == 'in_stock'
+                  = link_to delete_item_path(id: item.id), method: 'POST', class: 'btn btn-danger', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
+                    i class="fa fa-trash"
+                - else
+                  | Cannot be deleted

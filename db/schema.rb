@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.text 'description'
     t.float 'price'
     t.string 'image_url',   limit: 255
+    t.integer 'year'
+    t.string 'dimensions',  limit: 255
     t.integer 'category',                default: 0
     t.integer 'status',                  default: 0
     t.integer 'user_id'

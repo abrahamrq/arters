@@ -5,6 +5,9 @@ div class="row"
 		| Items ordered
 	div class="col-md-10 col-md-offset-1"
 		- @order.items.each do |item|
-			div class="col-md-4 item_order_show"
+			div class="col-md-4 item_order_show" style="margin-bottom: 10px;"
 				= image_tag( item.image_url, size: "120")
+				br
+				strong
+					= item.name
 

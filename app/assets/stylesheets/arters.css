@@ -126,3 +126,7 @@ tr.order_row:hover{
 .item_order_show{
 	text-align: center;
 }
+
+.centered-text{
+	text-align: center;
+}

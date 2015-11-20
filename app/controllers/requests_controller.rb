@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
   def send_request
     @request = ArtistRequest.new(request_params)
     if @request.save
-      flash[:success] = 'Your request has been sended, ' \
+      flash[:success] = 'Your request has been sent, ' \
                         'please wait until an admin accept or reject it'
       redirect_to root_path
     else

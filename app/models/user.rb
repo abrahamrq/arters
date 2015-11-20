@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     User.joins(:user_roles).where('user_roles.role_id = 2')
   end
 
+  def bought_items
+    Item.where(buyer_id: self.id)
+  end
+
   def expected_items
     Item.where(possible_buyer_id: self.id, buyer_id: nil)
   end
@@ -52,11 +56,17 @@ class User < ActiveRecord::Base
   end
 
   def main_role
-    roles.order('id ASC').first.name
+    return 'admin' if admin?
+    return 'artist' if artist?
+    'client'
   end
 
   def shopping_cart_size
     expected_items.size
+  end
+
+  def typeahead_format
+    "Artist - #{username}"
   end
   
   private

@@ -37,45 +37,6 @@ html
                 li
                   = link_to items_by_artist_path do
                     | By Artist
-            / li
-            /   a href="#"
-            /     |Nav Item
-            /   ul
-            /     li
-            /       a href="#"
-            /         |Subnav Item
-            /     li
-            /       a href="#"
-            /         |Subnav Item
-            /     li
-            /       a href="#"
-            /         |Subnav Item
-            / li
-            /   a href="#"
-            /     |Nav Item
-            /   ul
-            /     li
-            /       a href="#"
-            /         | Subnav Item
-            /     li
-            /       a href="#"
-            /         | Subnav Item
-            /     li
-            /       a href="#"
-            /         | Subnav Item
-            / li
-            /   a href="#"
-            /     |Nav Item
-            /   ul
-            /     li
-            /       a href="#"
-            /         |Subnav Item
-            /     li
-            /       a href="#"
-            /         |Subnav Item
-            /     li
-            /       a href="#"
-            /         |Subnav Item
             li
               a href="#"
                 |Artist
@@ -86,6 +47,10 @@ html
                 li
                   = link_to my_items_path do
                     | My items
+            li
+              li
+                = link_to user_profile_path(current_user.id) do
+                  | My Profile
       div id='content'
         div class="row"
           div class="col-md-10 col-md-offset-1"

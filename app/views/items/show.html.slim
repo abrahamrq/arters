@@ -1,18 +1,40 @@
 div class="row"
-	div class="col-md-4"
-	div class="col-md-4"
-		h1 class="page-title"
-			= @item.name.titleize
-	div class="col-md-4"
-		- if current_user == @item.user
-			- if @item.in_stock?
-				= link_to edit_item_path(@item), class: 'btn btn-primary pull-right' do
-					| Edit
-			- else
-				= button_tag type: 'button', 
-									 class: "btn btn-sm btn-warning pull-right disabled_button" do
-				  = "Edit (Already #{@item.status})"
-div class="row"
-	div class="col-md-10 col-md-offset-1"
-		div class="col-md-12"
-			= cart_button @item, current_user
+  div class="col-md-4"
+    = link_to user_profile_path(@item.user), class: 'btn btn-primary pull-left' do
+      | View Artist
+  div class="col-md-4"
+    h1 class="page-title"
+      = "#{@item.name.titleize} - #{@item.status.titleize}"
+  div class="col-md-4"
+    - if current_user == @item.user
+      - if @item.in_stock?
+        = link_to edit_item_path(@item), class: 'btn btn-primary pull-right' do
+          | Edit
+      - else
+        = button_tag type: 'button', 
+                   class: "btn btn-sm btn-warning pull-right disabled_button" do
+          = "Edit (Already #{@item.status})"
+    - else
+      = cart_button @item, current_user
+  div class="col-md-12"
+    hr
+  div class="col-md-12"
+    div class="col-md-6"
+      = image_tag( @item.image_url, size: "400")
+    div class="col-md-6"
+      h4
+        | Name
+      strong
+        = @item.name
+      h4
+        |Artist
+      strong
+        = @item.user.full_name
+      h4
+        | Description
+      strong
+        = @item.description
+      h4
+        |Price
+      strong
+        = number_to_currency @item.price.round(2)

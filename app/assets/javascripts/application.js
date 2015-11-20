@@ -44,12 +44,8 @@ function initialize_main_search(){
     source: items_bloodhound.ttAdapter()
   })
   
-   // $('#main-typeahead').on('typeahead:selected', function (e, object, dataset){
-   //  if (object.id) {
-   //    $('#vehicle_id_select').val(object.id);
-   //    $("#service_type_select").show();
-   //    serviceSelectionsLoad(object.id);
-   //  };
+   $('#main-typeahead').on('typeahead:selected', function (e, object, dataset){
+   		window.location.replace(object.url)
   });
 };
 

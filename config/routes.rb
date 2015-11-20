@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       scope constraints: ->(req) { Item.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).try(:user_id) == req.session[:user_id] && Item.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).in_stock?} do
         get 'edit_item/:id', to: 'items#edit_item', as: :edit_item
         patch 'edit_item/:id', to: 'items#update_item'
+        post 'delete_item/:id', to: 'items#destroy', as: :delete_item
       end
     end
 
@@ -31,7 +32,6 @@ Rails.application.routes.draw do
     scope constraints: ->(req) { Order.find_by_id(req.env['action_dispatch.request.path_parameters'][:id]).try(:user_id) == req.session[:user_id]} do
       get 'order/:id', to: 'orders#show', as: :order
     end
-
 
     # Just if you are a client or an artist
     scope constraints: ->(req) { ['client', 'artist'].include?(req.session[:role]) } do
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   get 'about_us', to: "welcome#about_us", as: :about_us
   get 'important_of_art', to: "welcome#important_of_art", as: :important_of_art
 
-
+  get 'user_profile/:id', to: 'users#profile', as: :user_profile
   get 'item/:id', to: 'items#show', as: :item
   get 'items/by_category', to: 'items#index_by_category', as: :items_by_category
   post 'items/by_category', to: 'items#choose_category',

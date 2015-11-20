@@ -33,6 +33,10 @@ class Item < ActiveRecord::Base
     "#{name} - #{description[0,100]}#{description.length > 100 ? '...' : ''}"
   end
 
+  def typeahead_format
+    "ITEM - #{name}"
+  end
+
   private
 
   def yours?

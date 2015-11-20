@@ -33,7 +33,6 @@ b > a:hover{
 }
 
 .register-login > a {
-	.box-sizing(content-box);
   width: 106px;
   cursor: pointer;
   padding: 5px 18px;

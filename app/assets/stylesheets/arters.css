@@ -2,15 +2,22 @@
 	width: 100%;
   background-color: #cfe2e2;
   background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
-  height: 100px;
+  height: 70px;
 }
 
 
 .header-arters{
-	margin-left: 20px;
+	margin-left: 15px;
 	margin-top: 5px;
 	float: left;
 }
+
+.slogan-arters{
+	font:10px;
+	margin-left: 215px;
+	margin-top: 30px;
+}
+
 
 .footer-div{
 	width: 100%;
@@ -53,7 +60,7 @@ b > a:hover{
 .register-login{
 	float: right;
 	margin-right: 20px;
-	margin-top: 35px;
+	margin-top: 20px;
 }
 
 .footer-year{

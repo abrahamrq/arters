@@ -44,6 +44,16 @@ label,h1,h2,h4{
 
 }
 
+h6{
+  font-size: 20px;
+  text-align: justify;
+}
+h5{
+  margin-left: 215px;
+  color: #D9853B;
+
+}
+
 .shopping_cart_link a {
     color: #D9853B;
 }

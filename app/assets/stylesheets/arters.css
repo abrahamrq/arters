@@ -46,7 +46,6 @@ b > a:hover{
   -o-text-overflow: clip;
   text-overflow: clip;
   background: #D9853B;
-  .transition(background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75));
   margin-right: 5px;
   margin-left: 5px;
 }

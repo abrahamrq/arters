@@ -119,7 +119,7 @@ a.category_link{
 .shopping_cart_link{
 	font-size: 3em;
 	margin-right: 20px;
-	margin-top: 15px;
+	margin-top: 0px;
 }
 .shopping_cart_link a{
 	color: #333333;

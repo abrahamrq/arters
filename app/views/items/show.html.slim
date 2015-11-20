@@ -34,6 +34,16 @@ div class="row"
         | Description
       strong
         = @item.description
+      - if @item.year
+        h4
+          |Year
+        strong
+          = @item.year
+      - if !@item.dimensions.blank?
+        h4
+          | Dimensions
+        strong
+          = @item.dimensions
       h4
         |Price
       strong

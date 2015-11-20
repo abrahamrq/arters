@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def typeahead_format
-    "Artist - #{username}"
+    "ARTER - #{username}"
   end
   
   private

@@ -34,7 +34,7 @@ class Item < ActiveRecord::Base
   end
 
   def typeahead_format
-    "ITEM - #{name}"
+    "ART - #{name}"
   end
 
   private
